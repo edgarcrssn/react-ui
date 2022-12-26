@@ -62,5 +62,5 @@
   "files": [
     "dist"
   ],
-  "types": "dist/components/index.d.ts"
+  "types": "dist/types/index.d.ts"
 }
