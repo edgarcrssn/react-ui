@@ -27,3 +27,6 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
 };
+Secondary.parameters = {
+  backgrounds: { default: 'dark' },
+};

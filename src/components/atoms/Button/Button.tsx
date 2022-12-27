@@ -6,8 +6,8 @@ type Props = {
   color: 'primary' | 'secondary';
 };
 
-const Button = ({ color }: Props) => {
-  return <button className="button">Button</button>;
+const Button = ({ color = 'primary' }: Props) => {
+  return <button className={`button button--${color}`}>Button</button>;
 };
 
 export default Button;

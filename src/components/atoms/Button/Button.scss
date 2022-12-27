@@ -1,3 +1,19 @@
+@import 'src/styles/app';
+
 .button {
-  background-color: red;
+  @include resetButton;
+  cursor: pointer;
+
+  font-size: 0.75rem;
+  padding: 0.5em 0.75em;
+  border-radius: .25em;
+
+  &--primary {
+    background-color: $primary;
+    color: $background;
+  }
+  &--secondary {
+    background-color: $background;
+    color: $primary;
+  }
 }
