@@ -21,7 +21,9 @@ export default {
   plugins: [
     peerDepsExternal(),
     resolve(),
-    typescript(),
+    typescript({
+      exclude: ['stories/', '**/*.stories.*'],
+    }),
     postcss({
       extensions: ['.css', '.scss'],
     }),
