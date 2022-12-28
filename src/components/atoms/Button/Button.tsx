@@ -20,7 +20,7 @@ type Props = {
   disabled?: boolean;
   loading?: boolean;
   htmlType?: 'submit' | 'reset' | 'button';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void;
 };
 
 /**
@@ -57,8 +57,8 @@ const Button = ({
 }: Props) => {
   return (
     <button
-      className={`button button--${color} button--${size}${
-        loading ? ' button--loading' : ''
+      className={`button button--${color} button--${size} ${
+        loading ? 'button--loading' : ''
       }`}
       style={fullWidth ? { width: '100%' } : undefined}
       disabled={disabled || loading}
@@ -69,7 +69,7 @@ const Button = ({
         {icon || loading ? (
           <div
             className="button__icon-container"
-            style={iconPosition === 'right' ? { order: 2 } : undefined}
+            style={iconPosition === 'right' ? { order: 1 } : undefined}
           >
             {loading ? <LoadingOutlined /> : icon}
           </div>

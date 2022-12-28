@@ -51,6 +51,7 @@ export default {
       description: 'The text that will be displayed in the button.',
     },
     onClick: {
+      defaultValue: undefined,
       description: 'A function to be executed on click.',
     },
   },
