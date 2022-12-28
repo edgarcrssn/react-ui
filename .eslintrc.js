@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'no-undef': 'off',
   },
