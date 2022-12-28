@@ -1,4 +1,5 @@
 @import 'src/styles/app';
+// @use "sass:list";
 
 .button {
   @include resetButton;
@@ -6,14 +7,88 @@
 
   font-size: 0.75rem;
   padding: 0.5em 0.75em;
-  border-radius: .25em;
+  border-radius: 0.25em;
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  color: $background;
+
+  transition: background-color 0.1s ease;
 
   &--primary {
     background-color: $primary;
-    color: $background;
+
+    &:hover {
+      background-color: lighten($primary, 10%);
+    }
   }
   &--secondary {
     background-color: $background;
     color: $primary;
+
+    &:hover {
+      background-color: lighten($background, 10%);
+    }
+  }
+
+  // $colors: check, warning, alert, info, gold;
+
+  // @each $color in $colors {
+  //   &--#{$color} {
+  //     background-color: #{$color};
+
+  //     &:hover {
+  //       background-color: #{$color}-dark;
+  //     }
+  //   }
+  // }
+
+  // &--check {
+  //   background-color: $green;
+  //   color: $background;
+
+  //   &:hover {
+  //     background-color: $green-dark;
+  //   }
+  // }
+  // &--warning {
+  //   background-color: $orange;
+  //   color: $background;
+
+  //   &:hover {
+  //     background-color: $orange-dark;
+  //   }
+  // }
+  // &--alert {
+  //   background-color: $red;
+  //   color: $background;
+
+  //   &:hover {
+  //     background-color: $red-dark;
+  //   }
+  // }
+  // &--info {
+  //   background-color: $blue;
+  //   color: $background;
+
+  //   &:hover {
+  //     background-color: $blue-dark;
+  //   }
+  // }
+  // &--gold {
+  //   background-color: $gold;
+  //   color: $background;
+
+  //   &:hover {
+  //     background-color: $gold-dark;
+  //   }
+  // }
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
