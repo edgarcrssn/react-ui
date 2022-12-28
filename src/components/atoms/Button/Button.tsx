@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import 'styles/globals.scss';
 import './Button.scss';
 import { LoadingOutlined } from '@ant-design/icons';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
   color?:
     | 'primary'
     | 'secondary'
@@ -14,15 +14,35 @@ type Props = {
     | 'alert'
     | 'info';
   size?: 'small' | 'medium' | 'large';
-  icon?: ReactNode;
+  icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
   disabled?: boolean;
   loading?: boolean;
   htmlType?: 'submit' | 'reset' | 'button';
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
+/**
+ * Simply a button
+ *
+ * @component
+ * @example
+ * ```jsx
+ * <Button
+ *  color="tertiary"
+ *  size="large"
+ *  icon={<InfoCircleOutlined />}
+ *  iconPosition="left"
+ *  fullWidth="false"
+ *  disabled={!isAvailable}
+ *  loading={isLoading}
+ *  htmlType="button"
+ *  onClick={() => alert("Hello World!")}>
+ *    Click-me!
+ *  </Button>
+ * ```
+ */
 const Button = ({
   children,
   color = 'primary',
