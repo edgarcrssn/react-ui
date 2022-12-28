@@ -1,5 +1,4 @@
 @import 'src/styles/app';
-// @use "sass:list";
 
 .button {
   @include resetButton;
@@ -9,82 +8,82 @@
   padding: 0.5em 0.75em;
   border-radius: 0.25em;
 
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-
   color: $background;
+  background-color: $primary;
+  border: 1px solid $primary;
+  box-shadow: 0 0 0px $primary;
 
-  transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease, color 0.1s ease,
+    box-shadow 0.1s ease-in-out;
 
-  &--primary {
-    background-color: $primary;
-
-    &:hover {
-      background-color: lighten($primary, 10%);
-    }
+  &:hover:enabled {
+    background-color: lighten($primary, 10%);
+    box-shadow: 0 0 1em rgba($primary, 0.25);
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &--loading {
+    cursor: wait !important;
+  }
+
   &--secondary {
-    background-color: $background;
     color: $primary;
+    background-color: $background;
+    border: 1px solid $background;
 
-    &:hover {
+    &:hover:enabled {
       background-color: lighten($background, 10%);
+      box-shadow: 0 0 1em rgba($background, 0.25);
+    }
+  }
+  &--tertiary {
+    color: $primary;
+    background-color: transparent;
+    border: 1px solid $primary;
+
+    &:hover:enabled {
+      color: $background;
+      background-color: $primary;
     }
   }
 
-  // $colors: check, warning, alert, info, gold;
+  $colors: (
+    'check': $check,
+    'warning': $warning,
+    'alert': $alert,
+    'info': $info,
+  );
+  @each $color, $value in $colors {
+    &--#{$color} {
+      background-color: $value;
+      border: 1px solid $value;
 
-  // @each $color in $colors {
-  //   &--#{$color} {
-  //     background-color: #{$color};
+      &:hover:enabled {
+        background-color: darken($value, 5%);
+        box-shadow: 0 0 1em rgba($value, 0.25);
+      }
+    }
+  }
 
-  //     &:hover {
-  //       background-color: #{$color}-dark;
-  //     }
-  //   }
-  // }
+  $sizes: (
+    'small': 0.625rem,
+    'medium': 0.75rem,
+    'large': 0.875rem,
+  );
+  @each $size, $value in $sizes {
+    &--#{$size} {
+      font-size: $value;
+    }
+  }
 
-  // &--check {
-  //   background-color: $green;
-  //   color: $background;
-
-  //   &:hover {
-  //     background-color: $green-dark;
-  //   }
-  // }
-  // &--warning {
-  //   background-color: $orange;
-  //   color: $background;
-
-  //   &:hover {
-  //     background-color: $orange-dark;
-  //   }
-  // }
-  // &--alert {
-  //   background-color: $red;
-  //   color: $background;
-
-  //   &:hover {
-  //     background-color: $red-dark;
-  //   }
-  // }
-  // &--info {
-  //   background-color: $blue;
-  //   color: $background;
-
-  //   &:hover {
-  //     background-color: $blue-dark;
-  //   }
-  // }
-  // &--gold {
-  //   background-color: $gold;
-  //   color: $background;
-
-  //   &:hover {
-  //     background-color: $gold-dark;
-  //   }
-  // }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
 
   &__icon-container {
     display: flex;

@@ -6,6 +6,7 @@ import { uglify } from 'rollup-plugin-uglify';
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
+import includePaths from 'rollup-plugin-includepaths';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -31,5 +32,6 @@ export default {
     babel(),
     commonjs(),
     image(),
+    includePaths({ paths: ['./src'] }),
   ],
 };
