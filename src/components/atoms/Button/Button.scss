@@ -17,7 +17,8 @@
     box-shadow 0.1s ease-in-out;
 
   &:hover:enabled {
-    background-color: lighten($primary, 10%);
+    background-color: lighten($primary, 5%);
+    border-color: lighten($primary, 5%);
     box-shadow: 0 0 1em rgba($primary, 0.25);
   }
   &:disabled {
@@ -34,7 +35,8 @@
     border: 1px solid $background;
 
     &:hover:enabled {
-      background-color: lighten($background, 10%);
+      background-color: lighten($background, 5%);
+      border-color: lighten($background, 5%);
       box-shadow: 0 0 1em rgba($background, 0.25);
     }
   }
@@ -62,6 +64,7 @@
 
       &:hover:enabled {
         background-color: darken($value, 5%);
+        border-color: darken($value, 5%);
         box-shadow: 0 0 1em rgba($value, 0.25);
       }
     }

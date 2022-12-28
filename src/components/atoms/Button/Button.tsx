@@ -4,8 +4,8 @@ import './Button.scss';
 import { LoadingOutlined } from '@ant-design/icons';
 
 type Props = {
-  children: string;
-  color:
+  children: ReactNode;
+  color?:
     | 'primary'
     | 'secondary'
     | 'tertiary'
