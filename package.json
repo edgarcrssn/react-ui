@@ -7,8 +7,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}'",
-    "lint::fix": "eslint --fix 'src/**/*.{ts,tsx,js,jsx}'",
-    "publish": "rollup -c && npm publish"
+    "lint::fix": "eslint --fix 'src/**/*.{ts,tsx,js,jsx}'"
   },
   "repository": {
     "type": "git",
