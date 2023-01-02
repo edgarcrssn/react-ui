@@ -1,10 +1,10 @@
 import React from 'react';
+import type { PropsWithChildren, FunctionComponent } from 'react';
 import 'styles/globals.scss';
 import './Button.scss';
 import { LoadingOutlined } from '@ant-design/icons';
 
-type Props = {
-  children: React.ReactNode;
+type Props = PropsWithChildren<{
   color?:
     | 'primary'
     | 'secondary'
@@ -20,8 +20,8 @@ type Props = {
   disabled?: boolean;
   loading?: boolean;
   htmlType?: 'submit' | 'reset' | 'button';
-  onClick?: () => void;
-};
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}>;
 
 /**
  * Simply a button
@@ -43,7 +43,7 @@ type Props = {
  *  </Button>
  * ```
  */
-const Button = ({
+const Button: FunctionComponent<Props> = ({
   children,
   color = 'primary',
   size = 'medium',
@@ -54,7 +54,7 @@ const Button = ({
   loading = false,
   htmlType = 'submit',
   onClick,
-}: Props) => {
+}) => {
   return (
     <button
       className={`button button--${color} button--${size} ${
