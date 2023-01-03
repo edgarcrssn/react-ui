@@ -4,9 +4,9 @@
   @include resetButton;
   cursor: pointer;
 
-  font-size: 0.75rem;
-  padding: 0.5em 0.75em;
-  border-radius: 0.25em;
+  font-size: $font-size-medium;
+  padding: $padding;
+  border-radius: $border-radius;
 
   color: $background;
   background-color: $primary;
@@ -71,9 +71,9 @@
   }
 
   $sizes: (
-    'small': 0.625rem,
-    'medium': 0.75rem,
-    'large': 0.875rem,
+    'small': $font-size-small,
+    'medium': $font-size-medium,
+    'large': $font-size-large,
   );
   @each $size, $value in $sizes {
     &--#{$size} {
@@ -85,7 +85,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
+    gap: $gap-small;
   }
 
   &__icon-container {

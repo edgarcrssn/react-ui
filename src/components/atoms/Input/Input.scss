@@ -1,0 +1,79 @@
+@import 'src/styles/app';
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-medium;
+
+  &--disabled {
+    opacity: 0.5;
+
+    .input {
+      cursor: not-allowed;
+    }
+  }
+
+  > .label {
+    font-size: $font-size-medium;
+    font-weight: 600;
+    line-height: 1em;
+
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  > .input-container {
+    display: flex;
+    align-items: center;
+    gap: $gap-medium;
+
+    > .input {
+      @include resetInput;
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+
+      font-size: $font-size-medium;
+      line-height: 1em;
+
+      background-color: white;
+      color: $primary;
+
+      padding: $padding;
+      border-radius: $border-radius;
+      overflow: hidden;
+
+      outline: 1px solid rgba($primary, 0.1);
+
+      &::placeholder {
+        color: rgba($primary, 0.5);
+      }
+      &:focus {
+        outline: 1px solid $primary;
+      }
+
+      &--require-validation {
+        &:invalid:not(:placeholder-shown) {
+          // :placeholder-shown : Means not empty
+          outline: 1px solid $alert;
+        }
+        &:valid:not(:placeholder-shown) {
+          outline: 1px solid $check;
+        }
+      }
+
+      &[type='password'] {
+        padding-right: calc($padding-left-right * 2.5);
+      }
+    }
+
+    > .display-password-button {
+      @include resetButton;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

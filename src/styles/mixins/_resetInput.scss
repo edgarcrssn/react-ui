@@ -1,0 +1,12 @@
+@mixin resetInput {
+  border: none;
+  background: none;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: inherit;
+  }
+}
